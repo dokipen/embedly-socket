@@ -1,0 +1,23 @@
+{
+  "author": "Bob Corsaro <bob@embed.ly> (http://bit.ly/rcorsaro)",
+  "name": "embedly-socket",
+  "description": "Web Socket proxy for the Embedly API",
+  "version": "0.0.1",
+  "respository": {
+    "type": "git",
+    "url": "git://github.com/dokipen/embedly-socket.git"
+  },
+  "main": "embedly-socket.js",
+  "engines": {
+    "node": "0.4"
+  },
+  "dependencies": {
+    "optimist": "~0.0.0"
+  },
+  "devDependencies": {
+    "optimist": "~0.0.0"
+  },
+  "scripts": {
+    "test": "blah"
+  }
+}
