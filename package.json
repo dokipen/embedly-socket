@@ -12,13 +12,10 @@
     "node": "0.4"
   },
   "dependencies": {
-    "optimist": "~0.2.8"
+    "optimist": "~0.2.0",
+    "hashish": "~0.0.0",
+    "socket.io": "~0.8.0"
   },
-  "devDependencies": {
-    "optimist": "~0.2.8"
-  },
-  "scripts": {
-    "test": "echo test"
-  }
+  "bin": "./server.js"
 }
 
