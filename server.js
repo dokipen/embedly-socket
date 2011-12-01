@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var opts = require('optimist')
            .usage('Web Socket proxy for the Embedly API')
            .options({
@@ -19,13 +20,17 @@ if (argv.help) {
   process.exit(0);
 }
 
-var app = require('express').createServer(express.logger());
+var express = require('express');
+var app = express.createServer(express.logger());
 var io = require('socket.io').listen(app);
 
 app.listen(argv.port);
 
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/htdocs/index.html');
+});
+app.get('/favicon.ico', function(req, res) {
+  res.sendfile(__dirname + '/htdocs/images/favicon.ico');
 });
 
 io.sockets.on('connection', function (socket) {
