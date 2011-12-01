@@ -14,7 +14,8 @@
   "dependencies": {
     "optimist": "~0.2.0",
     "hashish": "~0.0.0",
-    "socket.io": "~0.8.0"
+    "socket.io": "~0.8.0",
+    "express": "~2.5.0"
   },
   "bin": "./server.js"
 }

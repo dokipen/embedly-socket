@@ -19,11 +19,20 @@ if (argv.help) {
   process.exit(0);
 }
 
-var io = require('socket.io').listen(argv.port);
+console.log('blah');
 
-io.socket.on('connection', function(socket) {
-  socket.emit('news', {hello: 'world'});
-  socket.on('my other event', function(data) {
+var app = require('express').createServer();
+var io = require('socket.io').listen(app);
+
+app.listen(argv.port);
+
+app.get('/', function(req, res) {
+  res.sendfile(__dirname + '/htdocs/index.html');
+});
+
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
     console.log(data);
   });
 });
