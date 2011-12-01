@@ -1,9 +1,9 @@
 <html>
 <head><title>embedly-socket demo</title></head>
 <body>
-  <script src="http://embedly-socket.dokipen.c9.io/socket.io/socket.io.js"></script>
-  </script>
-    var socket = io.connect("http://embedly-socket.dokipen.c9.io");
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io.connect("/");
     socket.on('news', function(data) {
       console.log(data);
       socket.emit('my other event', {my: 'data'});

@@ -19,8 +19,6 @@ if (argv.help) {
   process.exit(0);
 }
 
-console.log('blah');
-
 var app = require('express').createServer();
 var io = require('socket.io').listen(app);
 
