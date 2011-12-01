@@ -19,7 +19,7 @@ if (argv.help) {
   process.exit(0);
 }
 
-var app = require('express').createServer();
+var app = require('express').createServer(express.logger());
 var io = require('socket.io').listen(app);
 
 app.listen(argv.port);
