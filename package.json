@@ -12,12 +12,13 @@
     "node": "0.4"
   },
   "dependencies": {
-    "optimist": "~0.0.0"
+    "optimist": "~0.2.8"
   },
   "devDependencies": {
-    "optimist": "~0.0.0"
+    "optimist": "~0.2.8"
   },
   "scripts": {
-    "test": "blah"
+    "test": "echo test"
   }
 }
+
