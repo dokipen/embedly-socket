@@ -41,12 +41,7 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 app.listen(argv.port);
-app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/htdocs/index.html');
-});
-app.get('/favicon.ico', function(req, res) {
-  res.sendfile(__dirname + '/htdocs/images/favicon.ico');
-});
+app.use(express.static(__dirname + '/htdocs'));
 
 require('./embedly-socket').socket({
   key: argv.key,

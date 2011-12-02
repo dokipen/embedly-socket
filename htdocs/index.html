@@ -1,5 +1,14 @@
 <html>
-<head><title>embedly-socket demo</title></head>
+  <head>
+    <title>embedly-socket demo</title>
+
+    <!-- kindly donated by sean creeley -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="alternate stylesheet" href="css/plus.css" title="plus" />
+    <link rel="alternate stylesheet" href="css/fb.css" title="fb" />
+  </head>
 <body>
   <script src="/socket.io/socket.io.js"></script>
   <script>
@@ -20,5 +29,23 @@
     socket.emit('oembed', {url: 'http://twitter.com/#!/embedly/status/123760297654751232', force: FORCE});
     socket.emit('oembed', {url: 'http://wiki.qemu.org/ChangeLog/1.0', force: FORCE});
   </script>
-  <h1>Web Sockets!</h1>
+  <div id="header"></div>
+  <div id="main" role="main" class="container_12">
+    <div class="grid_8 push_2 main">
+      <div class="preview_form">
+        <h2 id="preview_h2"><span></span>Stream</h2>
+        <form id="preview_form" method="post" action=".">
+          <div class="field" id="form_field">
+            <label for="id_status" id="status_label">Share what's new...</label>
+            <textarea name="status" id="id_status" rows="1"></textarea>
+          </div>
+          <div id="loading"></div>
+          <div id="display"></div>
+          <input id="id_submit" type="submit" class="disabled" value="Share"/>
+        </form>
+      </div>
+    </div>
+    <div id="feed" class="grid_8 push_2"></div>
+    <div class="clear"></div>
+  </div>
 </body>
