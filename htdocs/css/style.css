@@ -260,3 +260,15 @@ height: 1%; }
   padding: 0 0 0 120px;
 }
 
+.thumbnail {
+  width: 120px;
+  height: 80px;
+  float: left;
+  padding-right: 10px;
+}
+p.description {
+  font-size: 14px;
+  line-height: 17px;
+  padding-top: 5px;
+}
+
