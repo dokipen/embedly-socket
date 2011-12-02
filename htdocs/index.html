@@ -1,51 +1,47 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset=utf-8>
+
     <title>embedly-socket demo</title>
 
-    <!-- kindly donated by sean creeley -->
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/grid.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="alternate stylesheet" href="css/plus.css" title="plus" />
-    <link rel="alternate stylesheet" href="css/fb.css" title="fb" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/jquery.embedly-socket.js"></script>
+
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
 <body>
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io.connect("/");
-    socket.on('response', function(data) {
-      console.log(data);
-    });
-    socket.on('error', function(data) {
-      console.error('A error occurred!')
-      console.error(data)
-    });
-    socket.on('timeout', function(data) {
-      console.error('A timeout occurred!')
-      console.error(data)
-    });
-    var FORCE=false;
-    socket.emit('oembed', {url: 'http://t.co/RXU2lzGE', force: FORCE});
-    socket.emit('oembed', {url: 'http://twitter.com/#!/embedly/status/123760297654751232', force: FORCE});
-    socket.emit('oembed', {url: 'http://wiki.qemu.org/ChangeLog/1.0', force: FORCE});
-  </script>
-  <div id="header"></div>
-  <div id="main" role="main" class="container_12">
-    <div class="grid_8 push_2 main">
-      <div class="preview_form">
-        <h2 id="preview_h2"><span></span>Stream</h2>
-        <form id="preview_form" method="post" action=".">
-          <div class="field" id="form_field">
-            <label for="id_status" id="status_label">Share what's new...</label>
-            <textarea name="status" id="id_status" rows="1"></textarea>
+  <div class="container">
+    <div class="row">
+      <div class="hero-unit">
+        <h1> Embedly Socket <a id="doc" href="https://github.com/dokipen/embedly-socket" class="btn primary">Get the Code &raquo;</a></h1>
+        <p>
+        <a href="https://github.com/dokipen/embedly-socket">Embedly Socket</a>
+        A Web Socket proxy for the Embedly API.
+        <div class="clearfix"></div>
+        </p>
+        <form id="preview_form" class="form-stacked" method="post" action=".">
+          <div class="arrow">
+            <p>Try it out.</p>
+            <img src='../images/arrow.png'>
           </div>
-          <div id="loading"></div>
-          <div id="display"></div>
-          <input id="id_submit" type="submit" class="disabled" value="Share"/>
+          <fieldset>
+            <div class="clearfix"></div>
+            <input type="text" class="xxlarge" name="url" id="id_url" value="http://vimeo.com/18150336" />
+            <button id="id_attach" class="btn primary">Attach</button>
+            <span class="help-block">Enter your own url or select attach.</span>
+          </fieldset>
+          <!-- Placeholder that tells Preview where to put the loading icon-->
+          <div class="loading">
+            <img src='images/loading.gif'>
+          </div>
+          <!-- Placeholder that tells Preview where to put the selector-->
+          <div class="selector"></div>
         </form>
+        <div id="feed"></div>
       </div>
     </div>
-    <div id="feed" class="grid_8 push_2"></div>
-    <div class="clear"></div>
   </div>
 </body>
