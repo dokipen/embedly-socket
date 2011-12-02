@@ -4,10 +4,21 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     var socket = io.connect("/");
-    socket.on('news', function(data) {
+    socket.on('response', function(data) {
       console.log(data);
-      socket.emit('my other event', {my: 'data'});
     });
+    socket.on('error', function(data) {
+      console.error('A error occurred!')
+      console.error(data)
+    });
+    socket.on('timeout', function(data) {
+      console.error('A timeout occurred!')
+      console.error(data)
+    });
+    var FORCE=false;
+    socket.emit('oembed', {url: 'http://t.co/RXU2lzGE', force: FORCE});
+    socket.emit('oembed', {url: 'http://twitter.com/#!/embedly/status/123760297654751232', force: FORCE});
+    socket.emit('oembed', {url: 'http://wiki.qemu.org/ChangeLog/1.0', force: FORCE});
   </script>
   <h1>Web Sockets!</h1>
 </body>

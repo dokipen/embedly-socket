@@ -2,7 +2,7 @@
   "author": "Bob Corsaro <bob@embed.ly> (http://bit.ly/rcorsaro)",
   "name": "embedly-socket",
   "description": "Web Socket proxy for the Embedly API",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "respository": {
     "type": "git",
     "url": "git://github.com/dokipen/embedly-socket.git"
@@ -15,7 +15,8 @@
     "optimist": "~0.2.0",
     "hashish": "~0.0.0",
     "socket.io": "~0.8.0",
-    "express": "~2.5.0"
+    "express": "~2.5.0",
+    "embedly": "~0.5.0"
   },
   "bin": "./server.js"
 }
